@@ -8,7 +8,8 @@ export function generateStudyPlan(data) {
     const priority =
       subject.credits * 2 +
       (5 - subject.confidence) * 3 +
-      (subject.weakTopics?.length || 0) * 2;
+      (subject.weakTopics?.length || 0) * 2 -
+      (subject.strongTopics?.length || 0);
 
     totalPriority += priority;
 
@@ -26,8 +27,8 @@ export function generateStudyPlan(data) {
       allocatedHours: hours,
       reason:
         subject.confidence <= 2
-          ? "Low confidence and high conceptual load"
-          : "Balanced allocation based on credits and understanding",
+          ? "More time allocated due to low confidence and weak topics"
+          : "Balanced allocation based on credits and topic difficulty",
     };
   });
 
@@ -35,8 +36,7 @@ export function generateStudyPlan(data) {
     totalAvailableHours,
     allocation,
     nextWeekFocus: allocation
-      .filter((s) => s.confidence <= 3)
-      .map((s) => s.weakTopics)
-      .flat(),
+      .filter((s) => s.weakTopics.length > 0)
+      .flatMap((s) => s.weakTopics),
   };
 }
