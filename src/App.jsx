@@ -13,7 +13,7 @@ function App() {
       </h1>
 
       {/* Main Content */}
-      <div className="w-full max-w-screen-2xl mx-auto bg-white p-6 rounded-xl shadow">
+      <div className="w-full bg-white p-6 rounded-xl shadow">
         {!plan ? (
           <InputForm onGeneratePlan={setPlan} />
         ) : (
