@@ -34,8 +34,7 @@ Traditional planners (calendars, to-do lists) fail to adapt to these challenges,
 ---
 ## 🌐 Live Demo
 
-👉 
-
+👉 https://github.com/user-attachments/assets/479c0d2f-c0e2-4d5a-a7a2-f7c119db7ec1
 
 ## ✨ Key Features
 
