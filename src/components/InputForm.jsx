@@ -102,69 +102,109 @@ function InputForm({ onGeneratePlan }) {
           </p>
         )}
 
-        {subjects.map((subject, index) => (
-          <div
-            key={index}
-            className="border rounded-xl p-4 space-y-3 bg-gray-50"
-          >
-            <p className="text-sm font-semibold text-gray-600">
-              Subject {index + 1}
-            </p>
+      {subjects.map((subject, index) => (
+        <div
+          key={index}
+          className="border rounded-xl p-4 space-y-4 bg-gray-50"
+        >
+          <p className="text-sm font-semibold text-gray-600">
+            Subject {index + 1}
+          </p>
 
+          {/* Subject Name */}
+          <div>
+            <label className="block text-sm font-medium">
+              Subject Name
+            </label>
             <input
-              placeholder="Subject Name (e.g. Operating Systems)"
+              placeholder="e.g. Operating Systems"
               value={subject.name}
               onChange={(e) =>
                 handleSubjectChange(index, "name", e.target.value)
               }
-              className="w-full border p-2 rounded"
+              className="w-full border p-2 rounded mt-1"
               required
             />
+          </div>
 
-            <div className="grid grid-cols-2 gap-4">
+          {/* Credits & Confidence */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium">
+                Credits
+              </label>
               <input
                 type="number"
                 min="1"
-                placeholder="Credits"
                 value={subject.credits}
                 onChange={(e) =>
                   handleSubjectChange(index, "credits", e.target.value)
                 }
-                className="border p-2 rounded"
+                className="w-full border p-2 rounded mt-1"
               />
+              <p className="text-xs text-gray-500">
+                Higher credits = more study weight
+              </p>
+            </div>
 
+            <div>
+              <label className="block text-sm font-medium">
+                Confidence Level (1–5)
+              </label>
               <input
                 type="number"
                 min="1"
                 max="5"
-                placeholder="Confidence (1–5)"
                 value={subject.confidence}
                 onChange={(e) =>
                   handleSubjectChange(index, "confidence", e.target.value)
                 }
-                className="border p-2 rounded"
+                className="w-full border p-2 rounded mt-1"
               />
+              <p className="text-xs text-gray-500">
+                1 = very weak, 5 = very confident
+              </p>
             </div>
+          </div>
 
+          {/* Weak Topics */}
+          <div>
+            <label className="block text-sm font-medium">
+              Weak Topics
+            </label>
             <input
-              placeholder="Weak topics (comma separated)"
+              placeholder="e.g. Deadlocks, Graph Traversals"
               value={subject.weakTopics}
               onChange={(e) =>
                 handleSubjectChange(index, "weakTopics", e.target.value)
               }
-              className="w-full border p-2 rounded"
+              className="w-full border p-2 rounded mt-1"
             />
+            <p className="text-xs text-gray-500">
+              Topics that require extra focus
+            </p>
+          </div>
 
+          {/* Strong Topics */}
+          <div>
+            <label className="block text-sm font-medium">
+              Strong Topics
+            </label>
             <input
-              placeholder="Strong topics (comma separated)"
+              placeholder="e.g. Arrays, SQL Basics"
               value={subject.strongTopics}
               onChange={(e) =>
                 handleSubjectChange(index, "strongTopics", e.target.value)
               }
-              className="w-full border p-2 rounded"
+              className="w-full border p-2 rounded mt-1"
             />
+            <p className="text-xs text-gray-500">
+              Topics you are already comfortable with
+            </p>
           </div>
-        ))}
+        </div>
+      ))}
+
 
         <button
           type="button"
