@@ -32,6 +32,10 @@ Traditional planners (calendars, to-do lists) fail to adapt to these challenges,
 - Allowing users to revisit and edit inputs dynamically
 
 ---
+## 🌐 Live Demo
+
+👉 
+
 
 ## ✨ Key Features
 
@@ -113,7 +117,3 @@ Traditional planners (calendars, to-do lists) fail to adapt to these challenges,
 - Clear next-step guidance
 
 ---
-
-## 🌐 Live Demo
-
-👉 
